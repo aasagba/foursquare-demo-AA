@@ -1,0 +1,16 @@
+.container h1 {
+    margin-bottom: 50px;
+}
+.container .search-controls {
+    width:500px;
+}
+.container .search-controls .search {
+    width:300px;
+    display: inline;
+}
+.container .search-controls .btn {
+    display: inline;
+}
+.container .results {
+
+}
