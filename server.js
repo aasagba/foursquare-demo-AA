@@ -15,6 +15,7 @@ app.get('/location/:location', function (req, res) {
     console.log(location);
 
     var url = "https://api.foursquare.com/v2/venues/explore?near=" + location + "&client_id=HQVDVNQJDRRATTFNEE0SBDKUILFQYGHEZVYUQ3FEFQ5QSJWQ&client_secret=UUTQOYJQMNIEENRXKJ00TFIM0VDWLWE5OCXN1IUMRFL04LWD&v=20150910";
+    var json = [];
 
     request({url: url, json: true}, function (error, response, body) {
         if (error) {
@@ -45,9 +46,15 @@ app.get('/location/:location', function (req, res) {
                 "\nUrl: " + url +
                 "\nRating: " + rating
             );
+
+            json.push({
+                name: name,
+                url: url,
+                rating: rating
+            });
         }
 
-        //res.json(response);
+        res.json(json);
     });
 });
 

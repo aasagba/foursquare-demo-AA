@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ["ui.bootstrap"]);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("AppCtrl controller initialised");
 
-    $scope.results = undefined;
+    $scope.results = [];
 
     /* search(location)
      *
@@ -14,6 +14,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 
         $http.get('/location/' + location).success(function(response) {
             console.log(response);
+            $scope.results = response;
 
         });
     }

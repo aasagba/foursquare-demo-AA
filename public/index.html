@@ -16,8 +16,12 @@
                 </div>
             </form>
 
-            <div class="results" id="top-places">
-
+            <div class="results" ng-repeat="result in results" id="top-places">
+                <div class="result">
+                    <h3>{{result.name}}</h3>
+                    <a href="{{result.url}}">{{result.url}}</a>
+                    <h4>Rating: {{result.rating}}</h4>
+                </div>
             </div>
 
         </div>

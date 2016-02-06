@@ -3,6 +3,7 @@
 }
 .container .search-controls {
     width:500px;
+    height: 80px;
 }
 .container .search-controls .search {
     width:300px;
@@ -13,4 +14,11 @@
 }
 .container .results {
 
+}
+.container .results .result {
+    height: 100px;
+}
+.container .results .result h3, .container .results .result h4 {
+    padding:0;
+    margin:0;
 }
