@@ -8,10 +8,14 @@
     <body>
         <div class="container" ng-controller="AppCtrl">
             <h1>Foursquare Demo</h1>
-            <div class="search-controls">
-                <input class="form-control search" id="search" placeholder="Search..." />
-                <button class="btn btn-primary">Search</button>
-            </div>
+            <form name="form" novalidate>
+                <div class="search-controls" ng-class="{ 'has-error' : form.search.$invalid && !form.search.$pristine }">
+                    <p ng-show="form.search.$invalid && !form.search.$pristine" class="help-block">location required.</p>
+                    <input class="form-control search" name="search" id="search" placeholder="Search..." ng-model="location" required="required" ng-pattern="/^[a-zA-Z]*$/" />
+                    <button class="btn btn-primary" ng-click="search(location)" ng-disabled="form.$invalid">Search</button>
+                </div>
+            </form>
+
             <div class="results" id="top-places">
 
             </div>
