@@ -16,13 +16,38 @@ app.get('/location/:location', function (req, res) {
 
     var url = "https://api.foursquare.com/v2/venues/explore?near=" + location + "&client_id=HQVDVNQJDRRATTFNEE0SBDKUILFQYGHEZVYUQ3FEFQ5QSJWQ&client_secret=UUTQOYJQMNIEENRXKJ00TFIM0VDWLWE5OCXN1IUMRFL04LWD&v=20150910";
 
-    request(url, function (error, response, body) {
+    request({url: url, json: true}, function (error, response, body) {
         if (error) {
             console.log("Couldn’t get response because of error: " + error);
             return;
         }
 
-        res.json(body);
+        var results = body.response.groups[0].items;
+
+
+        for (var i = 0; i < results.length; i++){
+            var name = ' ', url = ' ', rating = ' ';
+
+            if (results[i].venue.url != undefined){
+                url = results[i].venue.url;
+            }
+
+            if (results[i].venue.name != undefined){
+                name = results[i].venue.name;
+            }
+
+            if (results[i].venue.rating != undefined){
+                rating = results[i].venue.rating;
+            }
+
+            console.log(
+                "\nName: " + name +
+                "\nUrl: " + url +
+                "\nRating: " + rating
+            );
+        }
+
+        //res.json(response);
     });
 });
 
