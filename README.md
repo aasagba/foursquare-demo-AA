@@ -28,6 +28,10 @@ Then install the Node modules with
   Or alternatively using the nodemon module
 
     nodemon server
+    
+The demo is also hosted on Heroku here
+
+https://foursquare-demo-aa.herokuapp.com/
 
 ### Who do I talk to?
 
