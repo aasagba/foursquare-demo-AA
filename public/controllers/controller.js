@@ -9,6 +9,14 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
      */
     $scope.search = function(location) {
         console.log("Search term is: " + location);
+
+        $http.get('/location/' + location).success(function(response) {
+            console.log(response);
+
+
+
+        });
     }
+
 
 }]);
